@@ -1,3 +1,4 @@
+import time
 status = True
 while status:
     print("(1) Read the notebook")
@@ -17,7 +18,8 @@ while status:
     elif user_selection == 2:
         sourcefile = open("notebook.txt", "a")
         addedtext = input("Write a new note: ")
-        sourcefile.write(addedtext + "\n")
+        notetime = time.strftime("%X %x")
+        sourcefile.write(addedtext + ":::" + notetime + "\n")
         sourcefile.close()
     elif user_selection == 3:
         print("Notes deleted.")
